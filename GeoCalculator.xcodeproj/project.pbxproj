@@ -417,10 +417,12 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = URTWGKA93U;
 				INFOPLIST_FILE = GeoCalculator/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = edu.gvsu.GeoCalculator;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -430,10 +432,12 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = URTWGKA93U;
 				INFOPLIST_FILE = GeoCalculator/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = edu.gvsu.GeoCalculator;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
@@ -514,6 +518,7 @@
 				032C01791E3FA9C8003CE716 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		032C017A1E3FA9C8003CE716 /* Build configuration list for PBXNativeTarget "GeoCalculatorTests" */ = {
 			isa = XCConfigurationList;
@@ -522,6 +527,7 @@
 				032C017C1E3FA9C8003CE716 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		032C017D1E3FA9C8003CE716 /* Build configuration list for PBXNativeTarget "GeoCalculatorUITests" */ = {
 			isa = XCConfigurationList;
@@ -530,6 +536,7 @@
 				032C017F1E3FA9C8003CE716 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

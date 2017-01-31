@@ -23,11 +23,18 @@ class ViewController: UIViewController {
         let long2 = CLLocationDegrees(Double(p2Long.text!)!)
         var loc1 : CLLocation = CLLocation(latitude: lat1, longitude: long1)
         var loc2 = CLLocation(latitude: lat2, longitude: long2)
-        let distance = loc1.distance(from: loc2)
-        distanceLabel.text = "Distance: " + String(distance)
+        let distance: Double = Double((loc1.distance(from: loc2)) / 1000)
+        let distanceRounded = round(100 * distance)/100
+        distanceLabel.text = "Distance: " + String(distanceRounded) + " kilometers"
         
     }
     @IBAction func clearClick(_ sender: Any) {
+        p1Long.text = ""
+        p2Long.text = ""
+        p1Lat.text = ""
+        p2Lat.text = ""
+        distanceLabel.text = "Distance: "
+        bearingLabel.text = "Bearing: "
     }
     override func viewDidLoad() {
         super.viewDidLoad()
