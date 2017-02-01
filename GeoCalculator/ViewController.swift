@@ -6,6 +6,7 @@
 //  Copyright © 2017 Josh Getter. All rights reserved.
 //
 
+//Authors: Josh Getter and Nam Nguyen
 import UIKit
 import MapKit
 class ViewController: UIViewController {
