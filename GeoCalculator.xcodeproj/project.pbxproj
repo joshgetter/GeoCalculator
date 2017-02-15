@@ -14,6 +14,7 @@
 		032C015D1E3FA9C8003CE716 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 032C015B1E3FA9C8003CE716 /* LaunchScreen.storyboard */; };
 		032C01681E3FA9C8003CE716 /* GeoCalculatorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 032C01671E3FA9C8003CE716 /* GeoCalculatorTests.swift */; };
 		032C01731E3FA9C8003CE716 /* GeoCalculatorUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 032C01721E3FA9C8003CE716 /* GeoCalculatorUITests.swift */; };
+		036CCF591E54C5E200A11AA9 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 036CCF581E54C5E200A11AA9 /* SettingsViewController.swift */; };
 		03E1EB271E417D7300490D7E /* DecimalMinusTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03E1EB261E417D7300490D7E /* DecimalMinusTextField.swift */; };
 		03E1EB291E417E1000490D7E /* CLLocationExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03E1EB281E417E1000490D7E /* CLLocationExtensions.swift */; };
 /* End PBXBuildFile section */
@@ -49,6 +50,7 @@
 		032C016E1E3FA9C8003CE716 /* GeoCalculatorUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = GeoCalculatorUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		032C01721E3FA9C8003CE716 /* GeoCalculatorUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeoCalculatorUITests.swift; sourceTree = "<group>"; };
 		032C01741E3FA9C8003CE716 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		036CCF581E54C5E200A11AA9 /* SettingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		03E1EB261E417D7300490D7E /* DecimalMinusTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DecimalMinusTextField.swift; sourceTree = "<group>"; };
 		03E1EB281E417E1000490D7E /* CLLocationExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CLLocationExtensions.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -103,6 +105,7 @@
 			children = (
 				032C01521E3FA9C8003CE716 /* AppDelegate.swift */,
 				032C01541E3FA9C8003CE716 /* ViewController.swift */,
+				036CCF581E54C5E200A11AA9 /* SettingsViewController.swift */,
 				032C01561E3FA9C8003CE716 /* Main.storyboard */,
 				032C01591E3FA9C8003CE716 /* Assets.xcassets */,
 				032C015B1E3FA9C8003CE716 /* LaunchScreen.storyboard */,
@@ -271,6 +274,7 @@
 				03E1EB271E417D7300490D7E /* DecimalMinusTextField.swift in Sources */,
 				03E1EB291E417E1000490D7E /* CLLocationExtensions.swift in Sources */,
 				032C01551E3FA9C8003CE716 /* ViewController.swift in Sources */,
+				036CCF591E54C5E200A11AA9 /* SettingsViewController.swift in Sources */,
 				032C01531E3FA9C8003CE716 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
