@@ -9,7 +9,7 @@
 //Authors: Josh Getter and Nam Nguyen
 import UIKit
 import MapKit
-class ViewController: UIViewController {
+class ViewController: UIViewController{
 
     @IBOutlet weak var p1Long: UITextField!
     @IBOutlet weak var p2Long: UITextField!
@@ -33,7 +33,6 @@ class ViewController: UIViewController {
         let bearing = loc1.bearingToPoint(point: loc2)
         let bearingRounded = round(bearing * 100)/100
         bearingLabel.text = "Bearing: " + String(bearingRounded) + " degrees"
-        
     }
     @IBAction func clearClick(_ sender: Any) {
         p1Long.text = ""
@@ -43,6 +42,7 @@ class ViewController: UIViewController {
         distanceLabel.text = "Distance: "
         bearingLabel.text = "Bearing: "
     }
+
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
