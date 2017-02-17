@@ -8,6 +8,11 @@
 
 import Foundation
 import UIKit
+
+protocol SettingsViewControllerDelegate{
+    func indicateSelection(bearingSelection: String, distanceSelection: String)
+}
+
 class SettingsViewController : UIViewController, UIPickerViewDelegate, UIPickerViewDataSource{
     override func viewDidLoad() {
         distanceUnitLabel.isUserInteractionEnabled = true
@@ -22,15 +27,24 @@ class SettingsViewController : UIViewController, UIPickerViewDelegate, UIPickerV
     var selectedDistanceUnit : String = ""
     var selectedBearingUnit : String = ""
     var isDistancePicker: Bool = false
-    
+    var delegate : SettingsViewControllerDelegate?
     @IBOutlet weak var unitPicker: UIPickerView!
     @IBOutlet weak var bearingUnitLabel: UILabel!
     @IBOutlet weak var distanceUnitLabel: UILabel!
+    /*override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        if let d = self.delegate{
+            d.indicateSelection(bearingSelection: selectedBearingUnit, distanceSelection: selectedDistanceUnit)
+        }
+    }*/
     @IBAction func cancelClick(_ sender: Any) {
         self.dismiss(animated: true)
     }
     @IBAction func saveClick(_ sender: Any) {
         self.dismiss(animated: true)
+        if let d = self.delegate{
+            d.indicateSelection(bearingSelection: selectedBearingUnit, distanceSelection: selectedDistanceUnit)
+        }
     }
     @IBAction func tapBearingUnits(_ sender: UITapGestureRecognizer) {
         pickerData = unitPickerData

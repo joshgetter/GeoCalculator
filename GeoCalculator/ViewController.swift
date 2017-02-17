@@ -9,7 +9,7 @@
 //Authors: Josh Getter and Nam Nguyen
 import UIKit
 import MapKit
-class ViewController: UIViewController{
+class ViewController: UIViewController, SettingsViewControllerDelegate{
 
     @IBOutlet weak var p1Long: UITextField!
     @IBOutlet weak var p2Long: UITextField!
@@ -17,6 +17,8 @@ class ViewController: UIViewController{
     @IBOutlet weak var p2Lat: UITextField!
     @IBOutlet weak var distanceLabel: UILabel!
     @IBOutlet weak var bearingLabel: UILabel!
+    var selectedBearingUnit:String = ""
+    var selectedDistanceUnit: String = ""
     @IBAction func calcClick(_ sender: Any) {
         guard (p1Long.text?.isEmpty)! == false && (p1Lat.text?.isEmpty) == false && (p2Lat.text?.isEmpty)! == false && (p2Long.text?.isEmpty)! == false else {
             return
@@ -28,8 +30,13 @@ class ViewController: UIViewController{
         let loc1 : CLLocation = CLLocation(latitude: lat1, longitude: long1)
         let loc2 = CLLocation(latitude: lat2, longitude: long2)
         let distance: Double = Double((loc1.distance(from: loc2)) / 1000)
-        let distanceRounded = round(100 * distance)/100
-        distanceLabel.text = "Distance: " + String(distanceRounded) + " kilometers"
+        var distanceRounded : Double = 0
+        if(selectedDistanceUnit == "Kilometers"){
+            distanceRounded = round(100 * distance)/100
+        }else{
+            distanceRounded = round(0.00062 * distance)/100
+        }
+        distanceLabel.text = "Distance: " + String(distanceRounded) + selectedDistanceUnit
         let bearing = loc1.bearingToPoint(point: loc2)
         let bearingRounded = round(bearing * 100)/100
         bearingLabel.text = "Bearing: " + String(bearingRounded) + " degrees"
@@ -47,7 +54,16 @@ class ViewController: UIViewController{
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
     }
-
+    func indicateSelection(bearingSelection: String, distanceSelection: String) {
+        selectedDistanceUnit = distanceSelection
+        selectedBearingUnit = bearingSelection
+        calcClick(self)
+    }
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if let dest = segue.destination.childViewControllers.first as? SettingsViewController{
+            dest.delegate = self
+        }
+    }
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
