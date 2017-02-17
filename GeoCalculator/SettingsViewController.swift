@@ -24,8 +24,8 @@ class SettingsViewController : UIViewController, UIPickerViewDelegate, UIPickerV
     let distancePickerData = ["Kilometers", "Miles"]
     let unitPickerData = ["Degrees","Mils"]
     var pickerData = [String]()
-    var selectedDistanceUnit : String = ""
-    var selectedBearingUnit : String = ""
+    var selectedDistanceUnit : String = "Kilometers"
+    var selectedBearingUnit : String = "Degrees"
     var isDistancePicker: Bool = false
     var delegate : SettingsViewControllerDelegate?
     @IBOutlet weak var unitPicker: UIPickerView!

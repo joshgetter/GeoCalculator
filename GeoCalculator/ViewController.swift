@@ -17,8 +17,8 @@ class ViewController: UIViewController, SettingsViewControllerDelegate{
     @IBOutlet weak var p2Lat: UITextField!
     @IBOutlet weak var distanceLabel: UILabel!
     @IBOutlet weak var bearingLabel: UILabel!
-    var selectedBearingUnit:String = ""
-    var selectedDistanceUnit: String = ""
+    var selectedBearingUnit:String = "Degrees"
+    var selectedDistanceUnit: String = "Kilometers"
     @IBAction func calcClick(_ sender: Any) {
         guard (p1Long.text?.isEmpty)! == false && (p1Lat.text?.isEmpty) == false && (p2Lat.text?.isEmpty)! == false && (p2Long.text?.isEmpty)! == false else {
             return
@@ -29,17 +29,27 @@ class ViewController: UIViewController, SettingsViewControllerDelegate{
         let long2 = CLLocationDegrees(Double(p2Long.text!)!)
         let loc1 : CLLocation = CLLocation(latitude: lat1, longitude: long1)
         let loc2 = CLLocation(latitude: lat2, longitude: long2)
-        let distance: Double = Double((loc1.distance(from: loc2)) / 1000)
+        var distance: Double = Double((loc1.distance(from: loc2)))
         var distanceRounded : Double = 0
+        var bearing = loc1.bearingToPoint(point: loc2)
+        var bearingRounded : Double = 0
+
         if(selectedDistanceUnit == "Kilometers"){
+            distance = distance/1000;
             distanceRounded = round(100 * distance)/100
         }else{
-            distanceRounded = round(0.00062 * distance)/100
+            distance = distance/1609.344
+            distanceRounded = round(100 * distance)/100
         }
-        distanceLabel.text = "Distance: " + String(distanceRounded) + selectedDistanceUnit
-        let bearing = loc1.bearingToPoint(point: loc2)
-        let bearingRounded = round(bearing * 100)/100
-        bearingLabel.text = "Bearing: " + String(bearingRounded) + " degrees"
+        if(selectedBearingUnit == "Degrees"){
+            bearingRounded = round(100 * bearing)/100
+        }
+        else{
+            bearing = bearing * 17.7777
+            bearingRounded = round(100 * bearing)/100
+        }
+        distanceLabel.text = "Distance: " + String(distanceRounded) + " " + selectedDistanceUnit
+        bearingLabel.text = "Bearing: " + String(bearingRounded) + " " + selectedBearingUnit
     }
     @IBAction func clearClick(_ sender: Any) {
         p1Long.text = ""
