@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		030E26181E799D2200362F1F /* LocationLookup.swift in Sources */ = {isa = PBXBuildFile; fileRef = 030E26171E799D2200362F1F /* LocationLookup.swift */; };
+		030E261A1E79A07200362F1F /* HistoryTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 030E26191E79A07200362F1F /* HistoryTableViewController.swift */; };
 		032C01531E3FA9C8003CE716 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 032C01521E3FA9C8003CE716 /* AppDelegate.swift */; };
 		032C01551E3FA9C8003CE716 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 032C01541E3FA9C8003CE716 /* ViewController.swift */; };
 		032C01581E3FA9C8003CE716 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 032C01561E3FA9C8003CE716 /* Main.storyboard */; };
@@ -17,6 +19,9 @@
 		036CCF591E54C5E200A11AA9 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 036CCF581E54C5E200A11AA9 /* SettingsViewController.swift */; };
 		03E1EB271E417D7300490D7E /* DecimalMinusTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03E1EB261E417D7300490D7E /* DecimalMinusTextField.swift */; };
 		03E1EB291E417E1000490D7E /* CLLocationExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03E1EB281E417E1000490D7E /* CLLocationExtensions.swift */; };
+		03E7E46D1E60A23500058570 /* GeoCalcTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03E7E46C1E60A23500058570 /* GeoCalcTextField.swift */; };
+		03E7E46F1E60A85100058570 /* GeoCalcLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03E7E46E1E60A85100058570 /* GeoCalcLabel.swift */; };
+		03E7E4711E60A89000058570 /* GeoCalcButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03E7E4701E60A89000058570 /* GeoCalcButton.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -37,6 +42,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		030E26171E799D2200362F1F /* LocationLookup.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocationLookup.swift; sourceTree = "<group>"; };
+		030E26191E79A07200362F1F /* HistoryTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HistoryTableViewController.swift; sourceTree = "<group>"; };
 		032C014F1E3FA9C8003CE716 /* GeoCalculator.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GeoCalculator.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		032C01521E3FA9C8003CE716 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		032C01541E3FA9C8003CE716 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -53,6 +60,9 @@
 		036CCF581E54C5E200A11AA9 /* SettingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		03E1EB261E417D7300490D7E /* DecimalMinusTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DecimalMinusTextField.swift; sourceTree = "<group>"; };
 		03E1EB281E417E1000490D7E /* CLLocationExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CLLocationExtensions.swift; sourceTree = "<group>"; };
+		03E7E46C1E60A23500058570 /* GeoCalcTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GeoCalcTextField.swift; sourceTree = "<group>"; };
+		03E7E46E1E60A85100058570 /* GeoCalcLabel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GeoCalcLabel.swift; sourceTree = "<group>"; };
+		03E7E4701E60A89000058570 /* GeoCalcButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GeoCalcButton.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -104,14 +114,19 @@
 			isa = PBXGroup;
 			children = (
 				032C01521E3FA9C8003CE716 /* AppDelegate.swift */,
+				03E7E46E1E60A85100058570 /* GeoCalcLabel.swift */,
+				03E7E4701E60A89000058570 /* GeoCalcButton.swift */,
+				03E7E46C1E60A23500058570 /* GeoCalcTextField.swift */,
 				032C01541E3FA9C8003CE716 /* ViewController.swift */,
 				036CCF581E54C5E200A11AA9 /* SettingsViewController.swift */,
 				032C01561E3FA9C8003CE716 /* Main.storyboard */,
+				030E26191E79A07200362F1F /* HistoryTableViewController.swift */,
 				032C01591E3FA9C8003CE716 /* Assets.xcassets */,
 				032C015B1E3FA9C8003CE716 /* LaunchScreen.storyboard */,
 				032C015E1E3FA9C8003CE716 /* Info.plist */,
 				03E1EB261E417D7300490D7E /* DecimalMinusTextField.swift */,
 				03E1EB281E417E1000490D7E /* CLLocationExtensions.swift */,
+				030E26171E799D2200362F1F /* LocationLookup.swift */,
 			);
 			path = GeoCalculator;
 			sourceTree = "<group>";
@@ -271,10 +286,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				03E7E4711E60A89000058570 /* GeoCalcButton.swift in Sources */,
 				03E1EB271E417D7300490D7E /* DecimalMinusTextField.swift in Sources */,
 				03E1EB291E417E1000490D7E /* CLLocationExtensions.swift in Sources */,
+				03E7E46D1E60A23500058570 /* GeoCalcTextField.swift in Sources */,
+				030E261A1E79A07200362F1F /* HistoryTableViewController.swift in Sources */,
 				032C01551E3FA9C8003CE716 /* ViewController.swift in Sources */,
 				036CCF591E54C5E200A11AA9 /* SettingsViewController.swift in Sources */,
+				03E7E46F1E60A85100058570 /* GeoCalcLabel.swift in Sources */,
+				030E26181E799D2200362F1F /* LocationLookup.swift in Sources */,
 				032C01531E3FA9C8003CE716 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

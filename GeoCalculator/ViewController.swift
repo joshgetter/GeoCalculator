@@ -17,6 +17,7 @@ class ViewController: UIViewController, SettingsViewControllerDelegate{
     @IBOutlet weak var p2Lat: UITextField!
     @IBOutlet weak var distanceLabel: UILabel!
     @IBOutlet weak var bearingLabel: UILabel!
+    var entries : [LocationLookup] = []
     var selectedBearingUnit:String = "Degrees"
     var selectedDistanceUnit: String = "Kilometers"
     @IBAction func calcClick(_ sender: Any) {
@@ -50,6 +51,7 @@ class ViewController: UIViewController, SettingsViewControllerDelegate{
         }
         distanceLabel.text = "Distance: " + String(distanceRounded) + " " + selectedDistanceUnit
         bearingLabel.text = "Bearing: " + String(bearingRounded) + " " + selectedBearingUnit
+        entries.append(LocationLookup(origLat: lat1, origLng: long1, destLat: lat2, destLng: long2, timestamp: Date()))
     }
     @IBAction func clearClick(_ sender: Any) {
         p1Long.text = ""
@@ -63,6 +65,7 @@ class ViewController: UIViewController, SettingsViewControllerDelegate{
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
+        self.view.backgroundColor = BACKGROUND_COLOR
     }
     func indicateSelection(bearingSelection: String, distanceSelection: String) {
         selectedDistanceUnit = distanceSelection
@@ -73,6 +76,7 @@ class ViewController: UIViewController, SettingsViewControllerDelegate{
         if let dest = segue.destination.childViewControllers.first as? SettingsViewController{
             dest.delegate = self
         }
+        
     }
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()

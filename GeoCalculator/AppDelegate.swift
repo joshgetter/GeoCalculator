@@ -5,17 +5,19 @@
 //  Created by Josh Getter on 1/30/17.
 //  Copyright © 2017 Josh Getter. All rights reserved.
 //
-
+let BACKGROUND_COLOR = UIColor.init(colorLiteralRed: 0.000, green: 0.369, blue: 0.420, alpha: 1.00)//blueish
+let FOREGROUND_COLOR = UIColor.init(colorLiteralRed: 0.937,green: 0.820, blue: 0.576, alpha: 1.0) //Tanish
 import UIKit
-
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
-
     var window: UIWindow?
-
+    
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
+        let navAppearance = UINavigationBar.appearance()
+        navAppearance.tintColor = FOREGROUND_COLOR
+        navAppearance.barTintColor = BACKGROUND_COLOR
         return true
     }
 
