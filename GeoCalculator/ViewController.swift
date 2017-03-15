@@ -72,11 +72,22 @@ class ViewController: UIViewController, SettingsViewControllerDelegate{
         selectedBearingUnit = bearingSelection
         calcClick(self)
     }
+    func selectEntry(entry: LocationLookup) {
+        //entry =
+    }
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if let dest = segue.destination.childViewControllers.first as? SettingsViewController{
-            dest.delegate = self
+        if segue.identifier == "settingsSegue"{
+            if let dest = segue.destination as? SettingsViewController{
+                dest.delegate = self
+            }
         }
-        
+        else if segue.identifier == "historySegue"{
+            if let historyDest = segue.destination as? HistoryTableViewController{
+                //historyDest.delegate = self
+                historyDest.entries = self.entries
+            }
+            
+        }
     }
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
