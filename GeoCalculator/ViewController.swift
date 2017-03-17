@@ -17,7 +17,12 @@ class ViewController: UIViewController, SettingsViewControllerDelegate, HistoryT
     @IBOutlet weak var p2Lat: UITextField!
     @IBOutlet weak var distanceLabel: UILabel!
     @IBOutlet weak var bearingLabel: UILabel!
-    var entries : [LocationLookup] = []
+    var entries : [LocationLookup] = [
+        LocationLookup(origLat: 90.0, origLng: 0.0, destLat: -90.0, destLng: 0.0,
+                       timestamp: Date.distantPast),
+        LocationLookup(origLat: -90.0, origLng: 0.0, destLat: 90.0, destLng: 0.0,
+                       timestamp: Date.distantFuture)]
+    
     var selectedBearingUnit:String = "Degrees"
     var selectedDistanceUnit: String = "Kilometers"
     @IBAction func calcClick(_ sender: Any) {

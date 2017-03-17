@@ -15,12 +15,7 @@ class HistoryTableViewController: UITableViewController{
     var delegate : HistoryTableViewControllerDelegate?
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
-
-        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        // self.navigationItem.rightBarButtonItem = self.editButtonItem()
+        self.sortIntoSections(entries: self.entries)
     }
 
     override func didReceiveMemoryWarning() {
@@ -63,6 +58,47 @@ class HistoryTableViewController: UITableViewController{
         // this pops to the calculator
         _ = self.navigationController?.popViewController(animated: true)
     }
+    
+    var tableViewData: [(sectionHeader: String, entries: [LocationLookup])]? {
+        didSet {
+            DispatchQueue.main.async {
+                self.tableView.reloadData()
+            }
+        }
+    }
+    func sortIntoSections(entries: [LocationLookup]) {
+        
+        var tmpEntries : Dictionary<String,[LocationLookup]> = [:]
+        var tmpData: [(sectionHeader: String, entries: [LocationLookup])] = []
+        
+        // partition into sections
+        for entry in entries {
+            let shortDate = entry.timestamp
+            if var bucket = tmpEntries[shortDate] {
+                bucket.append(entry)
+                tmpEntries[shortDate] = bucket
+            } else {
+                tmpEntries[shortDate] = [entry]
+            }
+        }
+        
+        // breakout into our preferred array format
+        let keys = tmpEntries.keys
+        for key in keys {
+            if let val = tmpEntries[key] {
+                tmpData.append((sectionHeader: key, entries: val))
+            }
+        }
+        // sort by increasing date.
+        tmpData.sort { (v1, v2) -> Bool in
+            if v1.sectionHeader < v2.sectionHeader {
+                return true
+            } else {
+                return false
+            }
+        }
+        
+        self.tableViewData = tmpData
     /*
     // Override to support conditional editing of the table view.
     override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
@@ -108,4 +144,5 @@ class HistoryTableViewController: UITableViewController{
     }
     */
 
+}
 }
