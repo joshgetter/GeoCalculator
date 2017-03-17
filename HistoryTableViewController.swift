@@ -10,7 +10,7 @@ import UIKit
 protocol HistoryTableViewControllerDelegate{
     func selectEntry(entry: LocationLookup)
 }
-class HistoryTableViewController: UITableViewController {
+class HistoryTableViewController: UITableViewController{
     var entries : [LocationLookup] = []
     var delegate : HistoryTableViewControllerDelegate?
     override func viewDidLoad() {
@@ -39,13 +39,13 @@ class HistoryTableViewController: UITableViewController {
         // #warning Incomplete implementation, return the number of rows
         return self.entries.count
     }
-
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "reuseIdentifier", for: indexPath)
-
+        let cell = tableView.dequeueReusableCell(withIdentifier: "cellId", for: indexPath)
+        var entry:LocationLookup = entries.last!
+        var stringEntry = "(\(entry.origLat),\(entry.origLng)) (\(entry.destLat),\(entry.destLng))"
         // Configure the cell...
-        cell.textLabel?.text = "lat lng goes here"
+        cell.textLabel?.text = stringEntry
         cell.detailTextLabel?.text = "date goes here"
 
         return cell

@@ -9,7 +9,7 @@
 //Authors: Josh Getter and Nam Nguyen
 import UIKit
 import MapKit
-class ViewController: UIViewController, SettingsViewControllerDelegate{
+class ViewController: UIViewController, SettingsViewControllerDelegate, HistoryTableViewControllerDelegate{
 
     @IBOutlet weak var p1Long: UITextField!
     @IBOutlet weak var p2Long: UITextField!
@@ -73,7 +73,10 @@ class ViewController: UIViewController, SettingsViewControllerDelegate{
         calcClick(self)
     }
     func selectEntry(entry: LocationLookup) {
-        //entry =
+        p1Lat.text = String(entry.origLat)
+        p1Long.text = String(entry.origLng)
+        p2Lat.text = String(entry.destLat)
+        p2Long.text = String(entry.destLng)
     }
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "settingsSegue"{
@@ -83,7 +86,7 @@ class ViewController: UIViewController, SettingsViewControllerDelegate{
         }
         else if segue.identifier == "historySegue"{
             if let historyDest = segue.destination as? HistoryTableViewController{
-                //historyDest.delegate = self
+                historyDest.delegate = self
                 historyDest.entries = self.entries
             }
             

@@ -42,10 +42,6 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Mer-dS-OR7" customClass="GeoCalcButton" customModule="GeoCalculator" customModuleProvider="target">
-                                <rect key="frame" x="148" y="629" width="79" height="30"/>
-                                <state key="normal" title="Settings"/>
-                            </button>
                             <stackView opaque="NO" contentMode="scaleToFill" misplaced="YES" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="uTW-FJ-V27">
                                 <rect key="frame" x="20" y="20" width="335" height="68"/>
                                 <subviews>
@@ -101,7 +97,6 @@
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="Mer-dS-OR7" secondAttribute="bottom" constant="8" symbolic="YES" id="0MB-Vf-vo9"/>
                             <constraint firstAttribute="trailing" secondItem="uTW-FJ-V27" secondAttribute="trailing" constant="20" symbolic="YES" id="8SX-Mk-gfl"/>
                             <constraint firstItem="v3x-3M-UUU" firstAttribute="top" secondItem="uTW-FJ-V27" secondAttribute="bottom" constant="8" symbolic="YES" id="AyM-t6-wlL"/>
                             <constraint firstItem="uTW-FJ-V27" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" constant="20" symbolic="YES" id="BIc-FL-h3d"/>
@@ -110,10 +105,8 @@
                             <constraint firstItem="opM-zJ-KMV" firstAttribute="top" secondItem="Dzw-NI-7Dn" secondAttribute="bottom" constant="8" symbolic="YES" id="HJw-GI-Vk0"/>
                             <constraint firstItem="5dI-Mh-sVn" firstAttribute="width" secondItem="8bC-Xf-vdC" secondAttribute="width" multiplier="1/3" id="HNJ-Ez-irW"/>
                             <constraint firstItem="v3x-3M-UUU" firstAttribute="width" secondItem="8bC-Xf-vdC" secondAttribute="width" multiplier="1/3" id="J3o-W6-8ct"/>
-                            <constraint firstItem="Mer-dS-OR7" firstAttribute="width" secondItem="8bC-Xf-vdC" secondAttribute="width" multiplier="1/3" id="M69-pp-5Ts"/>
                             <constraint firstItem="5dI-Mh-sVn" firstAttribute="trailing" secondItem="uTW-FJ-V27" secondAttribute="trailing" id="NL7-TJ-W8q"/>
                             <constraint firstItem="Dzw-NI-7Dn" firstAttribute="leading" secondItem="opM-zJ-KMV" secondAttribute="leading" id="QyR-rt-yYT"/>
-                            <constraint firstItem="Mer-dS-OR7" firstAttribute="centerX" secondItem="uTW-FJ-V27" secondAttribute="centerX" id="TPo-0r-JAq"/>
                             <constraint firstItem="uTW-FJ-V27" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="8" symbolic="YES" id="ZMk-Qv-t9S"/>
                             <constraint firstItem="Dzw-NI-7Dn" firstAttribute="trailing" secondItem="opM-zJ-KMV" secondAttribute="trailing" id="aOC-cZ-aTT"/>
                             <constraint firstItem="Dzw-NI-7Dn" firstAttribute="top" secondItem="v3x-3M-UUU" secondAttribute="bottom" constant="8" symbolic="YES" id="pfX-oo-ISZ"/>
@@ -160,18 +153,18 @@
                                 <rect key="frame" x="0.0" y="28" width="375" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="bFC-Kd-O3c" id="TUd-Wo-vqc">
-                                    <rect key="frame" x="0.0" y="0.0" width="342" height="43"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="342" height="43.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="fXe-kS-RYg">
-                                            <rect key="frame" x="15" y="4" width="34" height="21"/>
+                                            <rect key="frame" x="15" y="5" width="33.5" height="20.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="0.0"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Subtitle" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="2Sc-CU-Iqa">
-                                            <rect key="frame" x="15" y="25" width="44" height="15"/>
+                                            <rect key="frame" x="15" y="25.5" width="44" height="14.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="0.0"/>
                                             <nil key="textColor"/>
@@ -195,7 +188,7 @@
         <scene sceneID="ilP-DF-b8l">
             <objects>
                 <navigationController id="jwe-MF-kj7" sceneMemberID="viewController">
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" translucent="NO" id="jC0-J7-alb">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" translucent="NO" id="jC0-J7-alb">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
