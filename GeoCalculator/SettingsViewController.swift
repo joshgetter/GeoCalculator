@@ -38,10 +38,12 @@ class SettingsViewController : UIViewController, UIPickerViewDelegate, UIPickerV
         }
     }*/
     @IBAction func cancelClick(_ sender: Any) {
-        self.dismiss(animated: true)
+        //self.dismiss(animated: true)
+        navigationController?.popViewController(animated: true);
     }
     @IBAction func saveClick(_ sender: Any) {
-        self.dismiss(animated: true)
+        //self.dismiss(animated: true)
+        navigationController?.popViewController(animated: true);
         if let d = self.delegate{
             d.indicateSelection(bearingSelection: selectedBearingUnit, distanceSelection: selectedDistanceUnit)
         }

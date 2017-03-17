@@ -42,7 +42,7 @@ class HistoryTableViewController: UITableViewController{
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cellId", for: indexPath)
-        var entry:LocationLookup = entries.last!
+        var entry:LocationLookup = entries[indexPath.row]
         var stringEntry = "(\(entry.origLat),\(entry.origLng)) (\(entry.destLat),\(entry.destLng))"
         // Configure the cell...
         cell.textLabel?.text = stringEntry
