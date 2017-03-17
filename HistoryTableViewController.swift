@@ -42,16 +42,27 @@ class HistoryTableViewController: UITableViewController{
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cellId", for: indexPath)
-        var entry:LocationLookup = entries[indexPath.row]
-        var stringEntry = "(\(entry.origLat),\(entry.origLng)) (\(entry.destLat),\(entry.destLng))"
+        
+        let entry:LocationLookup = entries[indexPath.row]
+        let stringEntry = "(\(entry.origLat),\(entry.origLng)) (\(entry.destLat),\(entry.destLng))"
+        let stringDate = "\(entry.timestamp)"
         // Configure the cell...
         cell.textLabel?.text = stringEntry
-        cell.detailTextLabel?.text = "date goes here"
+        cell.detailTextLabel?.text = stringDate
 
         return cell
     }
     
-
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath:
+        IndexPath) {
+        // use the historyDelegate to report back entry selected to the calculator scene
+        if let del = self.delegate {
+            let ll = entries[indexPath.row]
+            del.selectEntry(entry: ll)
+        }
+        // this pops to the calculator
+        _ = self.navigationController?.popViewController(animated: true)
+    }
     /*
     // Override to support conditional editing of the table view.
     override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
