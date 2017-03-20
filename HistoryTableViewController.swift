@@ -35,7 +35,7 @@ class HistoryTableViewController: UITableViewController{
         return self.entries.count
     }
     
-    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+    /*override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "FancyCell", for: indexPath)
         
         let entry:LocationLookup = entries[indexPath.row]
@@ -46,9 +46,18 @@ class HistoryTableViewController: UITableViewController{
         cell.detailTextLabel?.text = stringDate
 
         return cell
-    }
+    }*/
+    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "FancyCell", for: indexPath) as! HistoryTableViewCell
+        //let ll = entries[indexPath.row]
+        if let ll = self.tableViewData?[indexPath.section].entries[indexPath.row] { cell.origPoint.text =
+            "(\(ll.origLat.roundTo(places:4)),\(ll.origLng.roundTo(places:4)))"
+            cell.destPoint.text = "(\(ll.destLat.roundTo(places:4)),\(ll.destLng.roundTo(places: 4)))"
+            cell.timestamp.text = ll.timestamp.description
+        }
+        return cell }
     
-    /*override func tableView(_ tableView: UITableView, didSelectRowAt indexPath:
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath:
         IndexPath) {
         // use the historyDelegate to report back entry selected to the calculator scene
         if let del = self.delegate {
@@ -57,7 +66,7 @@ class HistoryTableViewController: UITableViewController{
         }
         // this pops to the calculator
         _ = self.navigationController?.popViewController(animated: true)
-    }*/
+    }
     
     var tableViewData: [(sectionHeader: String, entries: [LocationLookup])]? {
         didSet {
@@ -101,14 +110,14 @@ class HistoryTableViewController: UITableViewController{
         self.tableViewData = tmpData
 
     }
-    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+    /*override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         // use the historyDelegate to report back entry selected to the calculator scene
         if let del = self.delegate { if let ll =
             self.tableViewData?[indexPath.section].entries[indexPath.row] { del.selectEntry(entry: ll)
             } }
         // this pops to the calculator
         _ = self.navigationController?.popViewController(animated: true) }
-    
+    */
     // MARK: - UITableViewDelegate
     override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) ->
         String? {
