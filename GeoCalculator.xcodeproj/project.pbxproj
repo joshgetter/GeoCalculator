@@ -23,6 +23,8 @@
 		03E7E46D1E60A23500058570 /* GeoCalcTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03E7E46C1E60A23500058570 /* GeoCalcTextField.swift */; };
 		03E7E46F1E60A85100058570 /* GeoCalcLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03E7E46E1E60A85100058570 /* GeoCalcLabel.swift */; };
 		03E7E4711E60A89000058570 /* GeoCalcButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03E7E4701E60A89000058570 /* GeoCalcButton.swift */; };
+		D81116A01E803C1A00D21AB4 /* beach1.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = D811169E1E803C1A00D21AB4 /* beach1.jpeg */; };
+		D81116A11E803C1A00D21AB4 /* beach2.jpg in Resources */ = {isa = PBXBuildFile; fileRef = D811169F1E803C1A00D21AB4 /* beach2.jpg */; };
 		D8E6DE2D1E7C48CE00CC6C05 /* HistoryTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8E6DE2C1E7C48CE00CC6C05 /* HistoryTableViewCell.swift */; };
 /* End PBXBuildFile section */
 
@@ -66,6 +68,8 @@
 		03E7E46C1E60A23500058570 /* GeoCalcTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GeoCalcTextField.swift; sourceTree = "<group>"; };
 		03E7E46E1E60A85100058570 /* GeoCalcLabel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GeoCalcLabel.swift; sourceTree = "<group>"; };
 		03E7E4701E60A89000058570 /* GeoCalcButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GeoCalcButton.swift; sourceTree = "<group>"; };
+		D811169E1E803C1A00D21AB4 /* beach1.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = beach1.jpeg; path = ../../../Desktop/beach1.jpeg; sourceTree = "<group>"; };
+		D811169F1E803C1A00D21AB4 /* beach2.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = beach2.jpg; path = ../../../Desktop/beach2.jpg; sourceTree = "<group>"; };
 		D8E6DE2C1E7C48CE00CC6C05 /* HistoryTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HistoryTableViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -128,6 +132,8 @@
 				032C01561E3FA9C8003CE716 /* Main.storyboard */,
 				D8E6DE2C1E7C48CE00CC6C05 /* HistoryTableViewCell.swift */,
 				032C01591E3FA9C8003CE716 /* Assets.xcassets */,
+				D811169E1E803C1A00D21AB4 /* beach1.jpeg */,
+				D811169F1E803C1A00D21AB4 /* beach2.jpg */,
 				032C015B1E3FA9C8003CE716 /* LaunchScreen.storyboard */,
 				032C015E1E3FA9C8003CE716 /* Info.plist */,
 				03E1EB261E417D7300490D7E /* DecimalMinusTextField.swift */,
@@ -268,6 +274,8 @@
 				032C015D1E3FA9C8003CE716 /* LaunchScreen.storyboard in Resources */,
 				032C015A1E3FA9C8003CE716 /* Assets.xcassets in Resources */,
 				032C01581E3FA9C8003CE716 /* Main.storyboard in Resources */,
+				D81116A01E803C1A00D21AB4 /* beach1.jpeg in Resources */,
+				D81116A11E803C1A00D21AB4 /* beach2.jpg in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

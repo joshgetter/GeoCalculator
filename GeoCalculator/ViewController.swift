@@ -82,6 +82,7 @@ class ViewController: UIViewController, SettingsViewControllerDelegate, HistoryT
         p1Long.text = String(entry.origLng)
         p2Lat.text = String(entry.destLat)
         p2Long.text = String(entry.destLng)
+        calcClick(Any)
     }
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "settingsSegue"{
