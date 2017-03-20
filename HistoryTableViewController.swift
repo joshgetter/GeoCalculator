@@ -36,7 +36,7 @@ class HistoryTableViewController: UITableViewController{
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "cellId", for: indexPath)
+        let cell = tableView.dequeueReusableCell(withIdentifier: "FancyCell", for: indexPath)
         
         let entry:LocationLookup = entries[indexPath.row]
         let stringEntry = "(\(entry.origLat),\(entry.origLng)) (\(entry.destLat),\(entry.destLng))"
@@ -48,7 +48,7 @@ class HistoryTableViewController: UITableViewController{
         return cell
     }
     
-    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath:
+    /*override func tableView(_ tableView: UITableView, didSelectRowAt indexPath:
         IndexPath) {
         // use the historyDelegate to report back entry selected to the calculator scene
         if let del = self.delegate {
@@ -57,7 +57,7 @@ class HistoryTableViewController: UITableViewController{
         }
         // this pops to the calculator
         _ = self.navigationController?.popViewController(animated: true)
-    }
+    }*/
     
     var tableViewData: [(sectionHeader: String, entries: [LocationLookup])]? {
         didSet {
@@ -73,7 +73,7 @@ class HistoryTableViewController: UITableViewController{
         
         // partition into sections
         for entry in entries {
-            let shortDate = entry.timestamp
+            let shortDate = entry.timestamp.short
             if var bucket = tmpEntries[shortDate] {
                 bucket.append(entry)
                 tmpEntries[shortDate] = bucket
@@ -99,6 +99,38 @@ class HistoryTableViewController: UITableViewController{
         }
         
         self.tableViewData = tmpData
+
+    }
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        // use the historyDelegate to report back entry selected to the calculator scene
+        if let del = self.delegate { if let ll =
+            self.tableViewData?[indexPath.section].entries[indexPath.row] { del.selectEntry(entry: ll)
+            } }
+        // this pops to the calculator
+        _ = self.navigationController?.popViewController(animated: true) }
+    
+    // MARK: - UITableViewDelegate
+    override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) ->
+        String? {
+            return self.tableViewData?[section].sectionHeader
+    }
+    override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) ->
+        CGFloat {
+            return 200.0
+    }
+    override func tableView(_ tableView: UITableView, willDisplayFooterView view: UIView, forSection
+        section: Int) {
+        let header = view as! UITableViewHeaderFooterView
+        header.textLabel?.textColor = UIColor.red
+        header.contentView.backgroundColor = UIColor.green
+    }
+    override func tableView(_ tableView: UITableView, willDisplayHeaderView view:
+        UIView,
+                            forSection section: Int) {
+        let header = view as! UITableViewHeaderFooterView
+        header.textLabel?.textColor = UIColor.red
+        header.contentView.backgroundColor = UIColor.green
+    }
     /*
     // Override to support conditional editing of the table view.
     override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
@@ -145,4 +177,5 @@ class HistoryTableViewController: UITableViewController{
     */
 
 }
-}
+
+
