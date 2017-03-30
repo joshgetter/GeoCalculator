@@ -10,7 +10,7 @@
 import UIKit
 import MapKit
 class ViewController: UIViewController, SettingsViewControllerDelegate, HistoryTableViewControllerDelegate{
-
+    
     @IBOutlet weak var p1Long: UITextField!
     @IBOutlet weak var p2Long: UITextField!
     @IBOutlet weak var p1Lat: UITextField!
@@ -39,7 +39,7 @@ class ViewController: UIViewController, SettingsViewControllerDelegate, HistoryT
         var distanceRounded : Double = 0
         var bearing = loc1.bearingToPoint(point: loc2)
         var bearingRounded : Double = 0
-
+        
         if(selectedDistanceUnit == "Kilometers"){
             distance = distance/1000;
             distanceRounded = round(100 * distance)/100
@@ -66,7 +66,7 @@ class ViewController: UIViewController, SettingsViewControllerDelegate, HistoryT
         distanceLabel.text = "Distance: "
         bearingLabel.text = "Bearing: "
     }
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
@@ -95,7 +95,11 @@ class ViewController: UIViewController, SettingsViewControllerDelegate, HistoryT
                 historyDest.delegate = self
                 historyDest.entries = self.entries
             }
-            
+        }
+        else if segue.identifier == "searchSegue"{
+            if let dest = segue.destination as? LocationSearchViewController {
+                dest.delegate = self
+            }
         }
     }
     override func didReceiveMemoryWarning() {
@@ -105,7 +109,16 @@ class ViewController: UIViewController, SettingsViewControllerDelegate, HistoryT
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         self.view.endEditing(true)
     }
-
-
+    
+    
 }
 
+extension ViewController: LocationSearchDelegate {
+    func set(calculationData: LocationLookup){
+        self.p1Lat.text = "\(calculationData.origLat)"
+        self.p1Long.text = "\(calculationData.origLng)"
+        self.p2Lat.text = "\(calculationData.destLat)"
+        self.p2Long.text = "\(calculationData.destLng)"
+        self.calcClick(Any.self)
+    }
+}

@@ -7,7 +7,10 @@
 //
 let BACKGROUND_COLOR = UIColor.init(colorLiteralRed: 0.000, green: 0.369, blue: 0.420, alpha: 1.00)//blueish
 let FOREGROUND_COLOR = UIColor.init(colorLiteralRed: 0.937,green: 0.820, blue: 0.576, alpha: 1.0) //Tanish
+let GOOGLE_PLACES_API_KEY = "AIzaSyD6V90UzJXKLb1Y57Pkv3omjBJ7Zpirx5E"
+
 import UIKit
+import GooglePlaces
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
     var window: UIWindow?
@@ -18,6 +21,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         let navAppearance = UINavigationBar.appearance()
         navAppearance.tintColor = FOREGROUND_COLOR
         navAppearance.barTintColor = BACKGROUND_COLOR
+        GMSPlacesClient.provideAPIKey(GOOGLE_PLACES_API_KEY)
         return true
     }
 
