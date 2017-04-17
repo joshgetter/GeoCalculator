@@ -11,6 +11,12 @@ import UIKit
 import MapKit
 class ViewController: UIViewController, SettingsViewControllerDelegate, HistoryTableViewControllerDelegate{
     
+    @IBOutlet weak var cond2: UITextView!
+    @IBOutlet weak var cond1: UITextView!
+    @IBOutlet weak var temp2: UITextView!
+    @IBOutlet weak var temp1: UITextView!
+    @IBOutlet weak var image2: UIImageView!
+    @IBOutlet weak var image1: UIImageView!
     @IBOutlet weak var p1Long: UITextField!
     @IBOutlet weak var p2Long: UITextField!
     @IBOutlet weak var p1Lat: UITextField!
@@ -22,7 +28,7 @@ class ViewController: UIViewController, SettingsViewControllerDelegate, HistoryT
                        timestamp: Date.distantPast),
         LocationLookup(origLat: -90.0, origLng: 0.0, destLat: 90.0, destLng: 0.0,
                        timestamp: Date.distantFuture)]
-    
+    let wAPI = DarkSkyWeatherService.getInstance()
     var selectedBearingUnit:String = "Degrees"
     var selectedDistanceUnit: String = "Kilometers"
     @IBAction func calcClick(_ sender: Any) {
@@ -53,6 +59,26 @@ class ViewController: UIViewController, SettingsViewControllerDelegate, HistoryT
         else{
             bearing = bearing * 17.7777
             bearingRounded = round(100 * bearing)/100
+        }
+        wAPI.getWeatherForDate(date: Date(), forLocation: (Double(p1Lat.text!)!, Double(p1Long.text!)!)) { (weather)
+            in
+            if let w = weather {
+                DispatchQueue.main.async {
+                    self.cond1.text = w.summary
+                    self.temp1.text = "\(w.temperature)"
+                    self.image1.image = UIImage(named: w.iconName)
+                }
+            }
+        }
+        
+        wAPI.getWeatherForDate(date: Date(), forLocation: (Double(p2Lat.text!)!, Double(p2Long.text!)!)) { (weather)
+            in
+            if let w = weather {
+                DispatchQueue.main.async {
+                    self.cond2.text = w.summary
+                    self.temp2.text = "\(w.temperature)"
+                    self.image2.image = UIImage(named: w.iconName)                }
+            }
         }
         distanceLabel.text = "Distance: " + String(distanceRounded) + " " + selectedDistanceUnit
         bearingLabel.text = "Bearing: " + String(bearingRounded) + " " + selectedBearingUnit
